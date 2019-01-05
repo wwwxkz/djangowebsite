@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <style>  
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: green;
+            background-color: black;
+        }
+        ul {
+            position: absolute;
+            list-style-type: none;
+            margin: -10px auto auto 130px;
+            padding: 0;
+            background-color: black;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: green;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+        div#crowley{
+            position:absolute;
+            margin: 30px auto auto 140px;
+        }
+        div#apresentacoes{
+            position: absolute;
+            margin: 100px auto auto 140px;
+        }
+        div#painel1{
+            left: 1000px;
+            text-align: left;
+            position: absolute;
+            margin: 30px auto auto auto;
+        }
+        div#painel2{
+            padding: 200px 570px 0px 140px;
+        }
+    </style>
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <meta charset="UTF-8"/>
+    <title>Crowley/Marcelo</title>
+</head>
+
+<body>
+	
+<!-- Navbar -->
+
+<ul>
+    <li><a href="">MyRepository</a></li>
+    <li><a href="">CrowleyOs</a></li>
+    <li><a href="">Crowmensage</a></li>
+    <li><a href="">Contact</a></li>
+    <li><a href="">Help</a></li>
+</ul>
+
+<!-- Aprensentação -->
+<div id="crowley">
+    <h1>Crowley :)</h1>
+</div>
+
+<!-- Noticias Sobre o Site -->
+
+<div id="apresentacoes">
+    <p><u>Site Feito Com Intuito De Mostrar O Conhecimento De Django De Wxkz</u></p>
+    <p><u>Projetos Adicionados Pela Plataforma do Admin Criada Com Python(Django)</u></p>
+</div>
+
+<!-- Painel 1 -->
+
+<div id="painel1">
+    <h2><br><u>About Crowley</u></h2>
+    <h4><u>Marcelo Rodrigues Campos Called Crowley, is an enthusiast in programming and learned his first programming language when I was 13 years old crowley started with python 3, then went to oce was meeting web languages ​​like javascript php, and markup languages ​​like html and css, then crowley went server side, learning how to create and manage a web server with linux debian, crowley uses linux and so had a great deal of ease with it.</u></h4>
+
+    <h2><br><u>Projects</u></h2>
+    <h4><u>* Crowmensage - app to exchange messages via direct connection without servers in the middle
+        <br><br>* MyWebsite - to show the community my personal projects and maybe even as a portfolio<br><br> * CrowleyOS - system focused on small companies for services that use database</u></h4>
+</div>
+	
+<!-- Projetos -->
+
+<div id="painel2">
+    <h2><br>Alguns Projetos</h2>
+    {% for post in lista_post %}
+        <h2><u>{{post.titulo}}<br></u></h2>
+        <h4><u>{{post.texto}}<br></u></h4>
+    {% endfor %}
+</div>
+</body>
+
+</html>
+
