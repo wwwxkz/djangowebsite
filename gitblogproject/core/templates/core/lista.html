@@ -2,7 +2,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <style>  
+    <style> 
+        strong{
+            color: white;
+        }
+
         body {
             font-family: 'Raleway', sans-serif;
             color: green;
@@ -37,7 +41,9 @@
         }
         div#apresentacoes{
             position: absolute;
-            margin: 100px auto auto 140px;
+            left: 148px;
+            top: 100px;
+           /* margin: 100px auto auto 140px; */
         }
         div#painel1{
             left: 1000px;
@@ -46,26 +52,31 @@
             margin: 30px auto auto auto;
         }
         div#painel2{
-            padding: 200px 570px 0px 140px;
+            position: absolute;
+            margin-top: 250px;
+            left: 148px;
+            padding-right: 600px;
+
+            /*padding: auto 570px 0px 140px;*/
         }
     </style>
     <meta name="viewport" content="width-device-width, initial-scale=1">
     <meta charset="UTF-8"/>
-    <title>Crowley/Marcelo</title>
 </head>
 
 <body>
 	
 <!-- Navbar -->
-
-<ul>
-    <li><a href="">MyRepository</a></li>
-    <li><a href="">CrowleyOs</a></li>
-    <li><a href="">Crowmensage</a></li>
-    <li><a href="">Contact</a></li>
-    <li><a href="">Help</a></li>
-</ul>
-
+<div id="navbar">
+    <ul>
+        <li><a href="">MyRepository</a></li>
+        <li><a href="">CrowleyOs</a></li>
+        <li><a href="">Crowmensage</a></li>
+        <li><a href="">Contact</a></li>
+        <li><a href="">Help</a></li>
+    </ul>
+</div>
+<div id="content">
 <!-- Aprensentação -->
 <div id="crowley">
     <h1>Crowley :)</h1>
@@ -90,13 +101,52 @@
 </div>
 	
 <!-- Projetos -->
+<div id=apresentacoes>
+    <h2><br><br><br>Alguns Projetos</h2>
+</div>
 
+<!-- PAGINATOR -->
 <div id="painel2">
-    <h2><br>Alguns Projetos</h2>
+<div class="pagination">
+{% if posts.has_previous %}
+
+    <a href="?page=1"><<</a>
+    <a href="?page={{ posts.previous_page_number }}"><<a/a>
+
+{% endif %}
+
+{% for num in posts.paginator.page_range %}
+
+    {% if posts.number == num %}
+
+        <strong>{{ num }}</strong>
+        
+
+    {% elif num > posts.number|add:'-3' and num < posts.number|add:'3' %}
+
+        {{ num }}
+
+    {% endif %}
+
+{% endfor %}
+
+{% if posts.has_next %}
+
+    <a href="?page={{ posts.next_page_number }}">></a>
+    <a href="?page={{ posts.paginator.num_pages }}">>></a>
+
+{% endif %}
+
+
+<!-- POSTS -->
+</div>
+
+    <br>
     {% for post in lista_post %}
         <h2><u>{{post.titulo}}<br></u></h2>
-        <h4><u>{{post.texto}}<br></u></h4>
+        <h4><u>{{post.texto | truncatechars:400 | safe }}<br></u></h4>
     {% endfor %}
+</div>
 </div>
 </body>
 
