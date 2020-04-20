@@ -1,6 +1,6 @@
 # djangowebsite
 
-![](https://github.com/wxkz/djangowebsite/blob/master/README/example.gif)
+![](https://github.com/wwwxkz/djangowebsite/blob/master/README/example.gif)
 
 how to install:
   * sudo apt install python3 python3-pip python3-dev
